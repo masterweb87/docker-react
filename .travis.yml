@@ -7,3 +7,17 @@ before_install:
   
 script:
   - docker run -e CI=true dev-react-image npm run test -- --coverage
+
+# edge=true forces Travis to use v2 version of dpl script, because v1 has a bug on bucket_name
+deploy:
+  edge: true 
+  provider: elasticbeanstalk
+  region: "us-east-2"
+  app: "docker-react-app"
+  env: "DockerReactApp-env"
+  bucket_name: "elasticbeanstalk-us-east-2-375702630848"
+  bucket_path: "docker-react-app"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
