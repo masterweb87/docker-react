@@ -10,6 +10,14 @@ function App() {
         <p>
           Ahora si vamos a retomar React
         </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          React web
+        </a>
       </header>
     </div>
   );
